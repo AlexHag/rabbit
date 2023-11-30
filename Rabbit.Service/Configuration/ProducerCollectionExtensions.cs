@@ -1,6 +1,6 @@
 using System.Reflection;
 using Rabbit.Domain.Events;
-using Rabbit.Service.Producer;
+using Rabbit.Domain.Producers;
 
 namespace Rabbit.Service.Configuration;
 

@@ -1,12 +1,15 @@
 using Rabbit.Service.Configuration;
-using Rabbit.Service.Producer;
+using Rabbit.Domain.Producers;
+using Rabbit.Domain.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ConfigureOptions<RabbitMQOptionsSetup>();
+builder.Services.AddScoped(typeof(EventProducer<>));
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.ConfigureOptions<ProducerOptionsSetup>();
-builder.Services.AddScoped(typeof(EventProducer<>));
 
 var app = builder.Build();
 
@@ -17,6 +20,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.MapGroup("produce")
     .MapProducerEndpoints()

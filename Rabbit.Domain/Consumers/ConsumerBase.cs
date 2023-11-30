@@ -3,12 +3,12 @@ using RabbitMQ.Client.Events;
 using Microsoft.Extensions.Options;
 using System.Text;
 using System.Text.Json;
-using Rabbit.Worker.Configuration;
 using Rabbit.Domain.Events;
+using Rabbit.Domain.Options;
 
-namespace Rabbit.Worker.Consumers;
+namespace Rabbit.Domain.Consumers;
 
-public abstract class ConsumerBase<T> : IHostedService, IDisposable
+public abstract class ConsumerBase<T> : IDisposable
     where T : EventBase
 {
     private readonly string _queueName;
@@ -17,7 +17,7 @@ public abstract class ConsumerBase<T> : IHostedService, IDisposable
 
     public ConsumerBase(
         string queueName,
-        IOptions<ConsumerOptions> options)
+        IOptions<RabbitMQOptions> options)
     {
         _queueName = queueName;
         var factory = new ConnectionFactory
@@ -30,8 +30,8 @@ public abstract class ConsumerBase<T> : IHostedService, IDisposable
         _channel = _connection.CreateModel();
     }
 
-    public abstract void Consume(T data);
-    public abstract void HandleJsonException(JsonException ex);
+    public abstract Task Consume(T data);
+    public abstract Task HandleJsonException(JsonException ex);
 
     private void ConsumeAndSerialize(object? model, BasicDeliverEventArgs ea)
     {

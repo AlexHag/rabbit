@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbit.Worker", "Rabbit.Wor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbit.Service", "Rabbit.Service\Rabbit.Service.csproj", "{DF1735DD-75A7-4AC3-B4AC-419D389F5FF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbit.ConsoleApp", "Rabbit.ConsoleApp\Rabbit.ConsoleApp.csproj", "{BA4DB6B8-6496-4658-B5E8-DB6BC7D9A30F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{DF1735DD-75A7-4AC3-B4AC-419D389F5FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF1735DD-75A7-4AC3-B4AC-419D389F5FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF1735DD-75A7-4AC3-B4AC-419D389F5FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA4DB6B8-6496-4658-B5E8-DB6BC7D9A30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA4DB6B8-6496-4658-B5E8-DB6BC7D9A30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA4DB6B8-6496-4658-B5E8-DB6BC7D9A30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA4DB6B8-6496-4658-B5E8-DB6BC7D9A30F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

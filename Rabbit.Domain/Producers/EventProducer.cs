@@ -1,18 +1,18 @@
 using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
-using RabbitMQ.Client;
-using Rabbit.Service.Configuration;
 using Rabbit.Domain.Events;
+using Rabbit.Domain.Options;
+using RabbitMQ.Client;
 
-namespace Rabbit.Service.Producer;
+namespace Rabbit.Domain.Producers;
 
 public class EventProducer<T> : IDisposable where T : EventBase
 {
     private readonly IModel _channel;
     private readonly IConnection _connection;
 
-    public EventProducer(IOptions<ProducerOptions> options)
+    public EventProducer(IOptions<RabbitMQOptions> options)
     {
         var factory = new ConnectionFactory
         {
