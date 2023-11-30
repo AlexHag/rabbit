@@ -482,3 +482,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# VS code assets for Debugging
+.vscode
